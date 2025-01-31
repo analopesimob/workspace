@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Landing Page Linda</title>
+        <link href="./output.css" rel="stylesheet" />
+    </head>
+
+    <body class="bg-gray-50">
+        <!-- Barra de Navegação -->
+        <!-- sticky top-0: Mantém a navbar fixa no topo durante a rolagem -->
+        <!-- shadow-lg: Adiciona uma sombra grande para dar profundidade -->
+        <!-- z-50: Garante que a navbar fique por cima de outros elementos -->
+        <nav class="sticky top-0 z-50 bg-white shadow-lg">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <!-- flex justify-between: Distribui os elementos com espaço entre eles -->
+                <!-- items-center: Alinha os itens verticalmente ao centro -->
+                <div class="flex h-16 items-center justify-between">
+                    <!-- Logo -->
+                    <!-- font-bold: Deixa o texto em negrito -->
+                    <!-- text-rose-600: Cor roxa/índigo para o texto -->
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-rose-600"
+                            >DreamCraft</span
+                        >
+                    </div>
+
+                    <!-- Links de Navegação -->
+                    <!-- hidden md:flex: Esconde em mobile, mostra como flex em telas médias -->
+                    <!-- space-x-4: Adiciona espaçamento horizontal entre elementos -->
+                    <div class="hidden space-x-4 md:flex">
+                        <!-- hover:text-rose-600: Muda a cor do texto ao passar o mouse -->
+                        <!-- transition duration-300: Suaviza a transição por 300ms -->
+                        <a
+                            href="#"
+                            class="rounded-md px-3 py-2 text-gray-700 transition duration-300 hover:text-rose-600"
+                            >Início</a
+                        >
+                        <a
+                            href="#"
+                            class="rounded-md px-3 py-2 text-gray-700 transition duration-300 hover:text-rose-600"
+                            >Sobre</a
+                        >
+                        <a
+                            href="#"
+                            class="rounded-md px-3 py-2 text-gray-700 transition duration-300 hover:text-rose-600"
+                            >Serviços</a
+                        >
+                        <a
+                            href="#"
+                            class="rounded-md px-3 py-2 text-gray-700 transition duration-300 hover:text-rose-600"
+                            >Contato</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Seção Hero (Principal) -->
+        <!-- min-h-screen: Define altura mínima como a altura da tela -->
+        <!-- bg-gradient-to-r: Cria um gradiente da esquerda para direita -->
+        <!-- from-rose-50 to-pink-50: Cores do gradiente, do índigo claro ao rosa claro -->
+        <section
+            class="flex min-h-screen items-center bg-gradient-to-r from-rose-50 to-pink-50"
+        >
+            <div class="mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+                <!-- grid: Sistema de grid -->
+                <!-- grid-cols-1: Uma coluna em mobile -->
+                <!-- md:grid-cols-2: Duas colunas em telas médias -->
+                <div
+                    class="grid grid-cols-1 items-center gap-12 md:grid-cols-2"
+                >
+                    <!-- Conteúdo de Texto -->
+                    <!-- space-y-8: Espaçamento vertical entre elementos filhos -->
+                    <div class="space-y-8">
+                        <!-- tracking-tight: Reduz o espaçamento entre letras -->
+                        <!-- leading-tight: Reduz a altura da linha -->
+                        <h1
+                            class="text-5xl font-extrabold leading-tight tracking-tight text-gray-900 md:text-6xl"
+                        >
+                            Crie seu Site dos Sonhos
+                        </h1>
+                        <p class="max-w-lg text-xl text-gray-600">
+                            Transforme suas ideias em realidade com nossas
+                            soluções de design web.
+                        </p>
+                        <!-- Botão com efeito de grupo -->
+                        <!-- group: Permite efeitos hover em elementos filhos -->
+                        <div class="flex space-x-4">
+                            <a
+                                href="#"
+                                class="group relative inline-flex items-center rounded-full bg-rose-600 px-8 py-3 text-white transition duration-300 hover:bg-rose-700"
+                            >
+                                Começar Agora
+                                <!-- transform: Habilita transformações -->
+                                <!-- group-hover:translate-x-1: Move o ícone 1 unidade para direita quando o grupo recebe hover -->
+                                <svg
+                                    class="ml-2 h-5 w-5 transform transition duration-300 group-hover:translate-x-1"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Imagem -->
+                    <!-- rounded-2xl: Bordas arredondadas -->
+                    <!-- shadow-2xl: Sombra extra grande -->
+                    <!-- hover:scale-105: Aumenta o tamanho em 5% ao passar o mouse -->
+                    <div class="relative">
+                        <img
+                            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/57/9c/d6/chiesetta-alpina.jpg?w=900&h=500&s=1"
+                            alt="Imagem Principal"
+                            class="transform rounded-2xl shadow-2xl transition duration-500 hover:scale-105"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Recursos -->
+        <!-- py-24: Padding vertical de 24 unidades -->
+        <section class="bg-white py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <!-- Cabeçalho da Seção -->
+                <!-- text-center: Centraliza o texto -->
+                <!-- mb-20: Margem inferior de 20 unidades -->
+                <div class="mb-20 text-center">
+                    <h2 class="mb-4 text-4xl font-bold text-gray-900">
+                        Recursos Incríveis
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Descubra o que nos torna especiais
+                    </p>
+                </div>
+
+                <!-- Cards de Recursos -->
+                <!-- gap-12: Espaçamento entre os cards -->
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+                    <!-- Card de Recurso 1 -->
+                    <!-- p-8: Padding interno de 8 unidades -->
+                    <!-- hover:shadow-xl: Aumenta a sombra ao passar o mouse -->
+                    <div
+                        class="rounded-xl bg-white p-8 shadow-lg transition duration-300 hover:shadow-xl"
+                    >
+                        <!-- Ícone com fundo colorido -->
+                        <div
+                            class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-rose-100"
+                        >
+                            <svg
+                                class="h-6 w-6 text-rose-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                                />
+                            </svg>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900">
+                            Super Rápido
+                        </h3>
+                        <p class="text-gray-600">
+                            Experimente carregamentos ultra rápidos e animações
+                            suaves.
+                        </p>
+                    </div>
+
+                    <!-- Card de Recurso 2 -->
+                    <div
+                        class="rounded-xl bg-white p-8 shadow-lg transition duration-300 hover:shadow-xl"
+                    >
+                        <div
+                            class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-pink-100"
+                        >
+                            <svg
+                                class="h-6 w-6 text-pink-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                />
+                            </svg>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900">
+                            Design Lindo
+                        </h3>
+                        <p class="text-gray-600">
+                            Crie sites deslumbrantes que chamam a atenção.
+                        </p>
+                    </div>
+
+                    <!-- Card de Recurso 3 -->
+                    <div
+                        class="rounded-xl bg-white p-8 shadow-lg transition duration-300 hover:shadow-xl"
+                    >
+                        <div
+                            class="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-green-100"
+                        >
+                            <svg
+                                class="h-6 w-6 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                />
+                            </svg>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-gray-900">
+                            Seguro & Confiável
+                        </h3>
+                        <p class="text-gray-600">
+                            Construído com segurança e confiabilidade em mente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos -->
+        <!-- bg-gradient-to-b: Gradiente de cima para baixo -->
+        <section class="bg-gradient-to-b from-rose-50 to-white py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mb-20 text-center">
+                    <h2 class="mb-4 text-4xl font-bold text-gray-900">
+                        O que Nossos Clientes Dizem
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Não acredite só na nossa palavra
+                    </p>
+                </div>
+
+                <!-- Cards de Depoimentos -->
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+                    <!-- Depoimento 1 -->
+                    <!-- flex items-center: Alinha itens verticalmente ao centro -->
+                    <div class="rounded-xl bg-white p-8 shadow-lg">
+                        <div class="mb-6 flex items-center">
+                            <img
+                                src="https://images.unsplash.com/photo-1623662346448-4fd13f54ffd0?q=80&w=100&h=100&auto=format&fit=crop"
+                                alt="Cliente"
+                                class="h-12 w-12 rounded-full"
+                            />
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-gray-900">
+                                    Sarah Johnson
+                                </h4>
+                                <p class="text-gray-600">CEO, TechStart</p>
+                            </div>
+                        </div>
+                        <p class="italic text-gray-600">
+                            "Trabalhar com esta equipe foi um prazer absoluto.
+                            Eles entregaram além das nossas expectativas!"
+                        </p>
+                    </div>
+
+                    <!-- Depoimento 2 -->
+                    <div class="rounded-xl bg-white p-8 shadow-lg">
+                        <div class="mb-6 flex items-center">
+                            <img
+                                src="https://images.unsplash.com/photo-1623662346448-4fd13f54ffd0?q=80&w=100&h=100&auto=format&fit=crop"
+                                alt="Cliente"
+                                class="h-12 w-12 rounded-full"
+                            />
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-gray-900">
+                                    Mike Thompson
+                                </h4>
+                                <p class="text-gray-600">Fundador, DesignPro</p>
+                            </div>
+                        </div>
+                        <p class="italic text-gray-600">
+                            "A atenção aos detalhes e criatividade mostrada em
+                            nosso projeto foi notável."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chamada para Ação -->
+        <!-- bg-rose-600: Fundo em tom de índigo -->
+        <section class="bg-rose-600 py-24">
+            <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+                <h2 class="mb-8 text-4xl font-bold text-white">
+                    Pronto para Começar?
+                </h2>
+                <p class="mx-auto mb-12 max-w-2xl text-xl text-rose-100">
+                    Junte-se a milhares de clientes satisfeitos que
+                    transformaram sua presença online conosco.
+                </p>
+                <!-- inline-block: Permite definir padding/margin mantendo o elemento inline -->
+                <a
+                    href="#"
+                    class="inline-block rounded-full bg-white px-8 py-3 font-semibold text-rose-600 transition duration-300 hover:bg-rose-50"
+                >
+                    Comece sua Jornada
+                </a>
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <!-- bg-gray-900: Fundo escuro para o rodapé -->
+        <footer class="bg-gray-900 py-12 text-white">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <!-- Grid de 4 colunas em desktop, 1 em mobile -->
+                <div class="grid grid-cols-1 gap-12 md:grid-cols-4">
+                    <!-- Informações da Empresa -->
+                    <!-- space-y-4: Espaçamento vertical entre elementos filhos -->
+                    <!-- text-gray-400: Cor de texto cinza clara para melhor contraste no fundo escuro -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-white">
+                            DreamCraft
+                        </h3>
+                        <p class="text-gray-400">
+                            Construindo sonhos digitais em realidade.
+                        </p>
+                    </div>
+
+                    <!-- Links Rápidos -->
+                    <!-- space-y-2: Espaçamento vertical menor entre links -->
+                    <div>
+                        <h4 class="mb-4 text-lg font-semibold">
+                            Links Rápidos
+                        </h4>
+                        <ul class="space-y-2">
+                            <!-- hover:text-white: Texto fica branco ao passar o mouse -->
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Sobre Nós</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Serviços</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Portfólio</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Contato</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Serviços -->
+                    <!-- Mesma estrutura que Links Rápidos, mantendo consistência -->
+                    <div>
+                        <h4 class="mb-4 text-lg font-semibold">Serviços</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Web Design</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Desenvolvimento</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >SEO</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    class="text-gray-400 transition duration-300 hover:text-white"
+                                    >Marketing</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contato -->
+                    <!-- text-gray-400: Mantém consistência com outros textos do rodapé -->
+                    <div>
+                        <h4 class="mb-4 text-lg font-semibold">Fale Conosco</h4>
+                        <ul class="space-y-2">
+                            <li class="text-gray-400">Rua da Web, 123</li>
+                            <li class="text-gray-400">
+                                Cidade Digital, CD 12345
+                            </li>
+                            <li class="text-gray-400">
+                                contato@dreamcraft.com
+                            </li>
+                            <li class="text-gray-400">(11) 1234-5678</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direitos Autorais -->
+                <!-- border-t: Adiciona borda superior -->
+                <!-- border-gray-800: Cor mais escura para a borda -->
+                <!-- mt-12 pt-8: Margem e padding top para separar do conteúdo acima -->
+                <div
+                    class="mt-12 border-t border-gray-800 pt-8 text-center text-gray-400"
+                >
+                    <p>&copy; 2025 DreamCraft. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

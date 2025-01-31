@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia dos Namorados</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            font-size: 24px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn-sim {
+            background: #ff4081;
+            color: #fff;
+        }
+        .btn-sim:hover {
+            background: #e91e63;
+        }
+        .btn-nao {
+            background: #607d8b;
+            color: #fff;
+        }
+        .btn-nao:hover {
+            background: #455a64;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Amor 💕</h1>
+        <p>Que tal comemorarmos o Dia dos Namorados de um jeito diferente (e delicioso)? <br>
+        Vamos trocar jantares chiques por algo que a gente ama de verdade: pastel! 🥟✨<br>
+        Topa essa ideia incrível de celebrar nosso dia com muito recheio e amor?</p>
+        <button class="btn btn-sim" onclick="responder('sim')">Sim</button>
+        <button class="btn btn-nao" onclick="responder('nao')">Não</button>
+    </div>
+
+    <script>
+        function responder(resposta) {
+            if (resposta === 'sim') {
+                alert('Oba! Vai ser delicioso! 🥰');
+            } else {
+                alert('Ahh, pensa com carinho! 😢');
+            }
+        }
+    </script>
+</body>
+</html>
