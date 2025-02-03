@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Quiz de Amor 💕</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffd1dc 0%, #ffb6c1 100%);
+            font-family: Arial, sans-serif;
+        }
+        .heart-pulse {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md bg-white shadow-2xl rounded-xl overflow-hidden">
+        <!-- Página Inicial -->
+        <div id="start-page" class="p-6 text-center">
+            <div class="heart-pulse text-6xl mb-4">💖</div>
+            <h1 class="text-2xl font-bold text-pink-600 mb-4">Desafio do Amor</h1>
+            <p class="text-lg mb-6">
+                Quer um presente especial? 🎁
+                <br>
+                Acerte todas as perguntas e ganhe:
+                <br>
+                <strong>Mini Pizza + Maratona de Série! 🍕📺</strong>
+            </p>
+            <button id="start-quiz-btn" class="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition">
+                Começar o Desafio do Amor
+            </button>
+        </div>
+        
+        <!-- Container do Quiz -->
+        <div id="quiz-container" class="hidden">
+            <div class="bg-pink-500 text-white text-center py-4">
+                <h1 class="text-2xl font-bold">💘 Nosso Quiz de Amor 💘</h1>
+            </div>
+            
+            <div class="p-6">
+                <div id="question-section">
+                    <h2 id="question-number" class="text-xl font-bold text-center mb-4"></h2>
+                    <h3 id="question-text" class="text-lg text-center mb-4"></h3>
+                    <p id="question-hint" class="italic text-pink-600 text-center mb-4"></p>
+                    
+                    <div id="answers-container" class="space-y-3">
+                        <!-- Answers will be dynamically inserted here -->
+                    </div>
+                </div>
+                
+                <div id="result-section" class="text-center hidden">
+                    <h2 class="text-2xl font-bold mb-4">🎉 Quiz Concluído! 🎉</h2>
+                    <p id="score-text" class="text-lg mb-4"></p>
+                    
+                    <div id="prize-reveal" class="hidden">
+                        <h3 class="text-xl font-bold text-pink-600 mb-4">🏆 Prêmio Especial Desbloqueado! 🏆</h3>
+                        <div class="bg-pink-100 p-4 rounded-lg">
+                            <p class="text-lg mb-2">Hoje à noite:</p>
+                            <h4 class="text-2xl font-bold">🍕 Mini Pizza + 📺 Maratona de Série</h4>
+                            <p class="text-sm italic mt-2">Um momento especial só nosso!</p>
+                        </div>
+                    </div>
+                    
+                    <button id="restart-btn" class="mt-4 bg-pink-500 text-white px-4 py-2 rounded">
+                        Reiniciar Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 🌈 ÁREA PARA PERSONALIZAÇÃO - EDITE AQUI AS PERGUNTAS E RESPOSTAS 🌈
+        const questions = [
+            {
+                question: "Como começou nossa linda história de amor?",
+                hint: "Pense no momento que nossos corações bateram mais forte...",
+                answers: [
+                    { text: "Em um restaurante", isCorrect: false },
+                    { text: "Com um pedido de casamento inesperado", isCorrect: true },
+                    { text: "Em uma viagem para as neves", isCorrect: false },
+                    { text: "Em um encontro entre amigos", isCorrect: false }
+                ]
+            },
+            {
+                question: "O que mais me faz sorrir?",
+                hint: "O que ilumina meu dia completamente...",
+                answers: [
+                    { text: "Acordar todos os dias ao seu lado", isCorrect: true },
+                    { text: "Uma música boa", isCorrect: false },
+                    { text: "Uma comida gostosa", isCorrect: false },
+                    { text: "Viagens", isCorrect: false }
+                ]
+            },
+            {
+                question: "A viagem tão sonhado é para?",
+                hint: "Já fizemos tantos planos...",
+                answers: [
+                    { text: "Venezuela", isCorrect: false },
+                    { text: "Chile", isCorrect: true },
+                    { text: "Paris", isCorrect: false },
+                    { text: "Sorocaba", isCorrect: false }
+                ]
+            },
+            {
+                question: "Qual é minha comida preferida?",
+                hint: "Essa é muitoooooo fácil...",
+                answers: [
+                    { text: "Massa", isCorrect: false  },
+                    { text: "Sushi", isCorrect: false },
+                    { text: "Qualquer uma que você fizer", isCorrect: true  },
+                    { text: "Pizza", isCorrect: false  }
+                ]
+            },
+
+			{ 
+                question: "Qual é minha cor preferida?",
+                hint: "hmmmmmm que dúvida...",
+                answers: [
+                    { text: "Amarelo", isCorrect: false  },
+                    { text: "Vermelho", isCorrect: false },
+                    { text: "Azul", isCorrect: false },
+                    { text: "Rosa", isCorrect: true }
+			]
+			}		
+        ];
+
+        // Elementos da página
+        const startPage = document.getElementById('start-page');
+        const quizContainer = document.getElementById('quiz-container');
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        const questionNumberEl = document.getElementById('question-number');
+        const questionTextEl = document.getElementById('question-text');
+        const questionHintEl = document.getElementById('question-hint');
+        const answersContainer = document.getElementById('answers-container');
+        const questionSection = document.getElementById('question-section');
+        const resultSection = document.getElementById('result-section');
+        const scoreText = document.getElementById('score-text');
+        const restartBtn = document.getElementById('restart-btn');
+        const prizeReveal = document.getElementById('prize-reveal');
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Evento para iniciar o quiz
+        startQuizBtn.addEventListener('click', () => {
+            startPage.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            loadQuestion();
+        });
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            
+            questionNumberEl.textContent = `Pergunta ${currentQuestionIndex + 1} de ${questions.length}`;
+            questionTextEl.textContent = currentQuestion.question;
+            questionHintEl.textContent = `🕵️ Dica: ${currentQuestion.hint}`;
+            
+            answersContainer.innerHTML = '';
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement('button');
+                button.textContent = answer.text;
+                button.classList.add('w-full', 'py-2', 'rounded', 'bg-pink-100', 'hover:bg-pink-200');
+                button.addEventListener('click', () => selectAnswer(answer.isCorrect));
+                answersContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(isCorrect) {
+            if (isCorrect) score++;
+            
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(loadQuestion, 500);
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            questionSection.classList.add('hidden');
+            resultSection.classList.remove('hidden');
+            scoreText.textContent = `Sua pontuação: ${score} de ${questions.length}`;
+
+            if (score === questions.length) {
+                prizeReveal.classList.remove('hidden');
+            }
+        }
+
+        restartBtn.addEventListener('click', () => {
+            currentQuestionIndex = 0;
+            score = 0;
+            questionSection.classList.remove('hidden');
+            resultSection.classList.add('hidden');
+            prizeReveal.classList.add('hidden');
+            loadQuestion();
+        });
+    </script>
+</body>
+</html>
