@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recibo de Débito de Beijos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffe6e6;
+        }
+        .recibo {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border: 2px solid #ff6b6b;
+            position: relative;
+        }
+        .titulo {
+            color: #ff4757;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .selo {
+            color: red;
+            border: 2px solid red;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            transform: rotate(-15deg);
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 1;
+        }
+        .aviso {
+            color: #ff4757;
+            font-size: 14px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .botao {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .botao:hover {
+            background-color: #ff6b6b;
+        }
+        .coracao {
+            color: #ff4757;
+            font-size: 24px;
+        }
+        #contador {
+            font-weight: bold;
+            color: #ff4757;
+        }
+    </style>
+</head>
+<body>
+    <div class="recibo">
+        <div class="titulo">💘 RECIBO DE DÉBITO DE BEIJOS 💘</div>
+        
+        <div class="selo">URGENTE</div>
+        
+        <p>Pela presente, declaro que <input type="text" placeholder="Carlos Felipe C Rohde" style="border: none; border-bottom: 1px solid #ff4757;"> 
+        está em débito com sua namorada no valor de <span id="contador">165</span> beijos.</p>
+        
+        <p>⚠️ AVISO IMPORTANTE ⚠️</p>
+        <p>Caso o débito não seja quitado em até 1 dia, o devedor poderá:</p>
+        <ul>
+            <li>Ter seu nome incluído no S.P.C. (Sistema de Proteção aos Corações) 💔</li>
+            <li>Ser negativado no SERASA (Serviço de Registro de Amores Sem Afeto) 😢</li>
+            <li>Receber cobranças diárias via WhatsApp com emoji de coração partido 📱</li>
+        </ul>
+
+        <div class="aviso">
+            Para evitar maiores constrangimentos, sugerimos o pagamento imediato dos beijos em atraso.
+        </div>
+
+        <button class="botao" onclick="pagarBeijo()">Pagar 1 Beijo 💋</button>
+        <button class="botao" onclick="pagarTodos()">Pagar Todos os Beijos ❤️</button>
+
+        <p id="mensagem" style="display: none; color: #ff4757; font-weight: bold; margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        let beijosDevidos = 165;
+        
+        function pagarBeijo() {
+            if (beijosDevidos > 0) {
+                beijosDevidos--;
+                document.getElementById('contador').textContent = beijosDevidos;
+                let msg = document.getElementById('mensagem');
+                msg.style.display = 'block';
+                msg.textContent = 'Beijo solicitado com sucesso! Faltam ' + beijosDevidos + ' beijos.';
+                
+                if (beijosDevidos === 0) {
+                    msg.textContent = '❤️ Parabéns! Todas as suas dívidas de beijos serão pagas hoje! ❤️';
+                }
+            }
+        }
+        
+        function pagarTodos() {
+            beijosDevidos = 0;
+            document.getElementById('contador').textContent = beijosDevidos;
+            let msg = document.getElementById('mensagem');
+            msg.style.display = 'block';
+            msg.textContent = '❤️ Parabéns! Todas as suas dívidas de beijos serão pagas hoje! ❤️';
+        }
+    </script>
+</body>
+</html>
