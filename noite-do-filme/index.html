@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cine Rohde ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .movie-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+            background: #444;
+        }
+
+        .movie-card img {
+            width: 160px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .food-item {
+            background: #333;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .food-item:hover {
+            background: #444;
+        }
+
+        .food-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .selected {
+            border: 2px solid #ff4d6d;
+        }
+
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3357;
+        }
+
+        .ticket {
+            background: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ticket:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 20px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                #ff4d6d 10px,
+                #ff4d6d 20px
+            );
+        }
+
+        h1, h2 {
+            color: #ff4d6d;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 24px;
+            color: #ff4d6d;
+            margin: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Cine Rohde 🎬</h1>
+
+        <!-- Etapa 1: Escolha do Filme -->
+        <div class="step active" id="step1">
+            <h2>Filmes em Cartaz</h2>
+            <div class="movie-grid">
+                <div class="movie-card" onclick="selectMovie(this, 'plano')">
+                    <img src="foto.jpg" alt="Plano em Família">
+                    <h3>Plano em Família</h3>
+                    <p>Sessão: 20:00</p>
+                    <p>Sala: Especial dos Namorados</p>
+                </div>
+                <div class="movie-card" onclick="selectMovie(this, 'plano')">
+                    <img src="foto.jpg" alt="Plano em Família">
+                    <h3>Plano em Família</h3>
+                    <p>Sessão: 20:30</p>
+                    <p>Sala: VIP Romântica</p>
+                </div>
+                <div class="movie-card" onclick="selectMovie(this, 'plano')">
+                    <img src="foto.jpg" alt="Plano em Família">
+                    <h3>Plano em Família</h3>
+                    <p>Sessão: 21:00</p>
+                    <p>Sala: Super Luxo</p>
+                </div>
+            </div>
+            <button onclick="nextStep('step1', 'step2')">Escolher Comidas</button>
+        </div>
+
+        <!-- Etapa 2: Escolha das Comidas -->
+        <div class="step" id="step2">
+            <h2>Escolha suas Guloseimas</h2>
+            <div class="food-grid">
+                <div class="food-item" onclick="selectFood(this)">
+                    <img src="hamburguer.jpg" alt="Hambúrguer">
+                    <h3>Hambúrguer Especial</h3>
+                    <p>O mais gostoso!</p>
+                </div>
+                <div class="food-item" onclick="selectFood(this)">
+                    <img src="chocolate.jpg" alt="Chocolate">
+                    <h3>Chocolate</h3>
+                    <p>Para adoçar ainda mais</p>
+                </div>
+                <div class="food-item" onclick="selectFood(this)">
+                    <img src="coca.jpeg" alt="Refrigerante">
+                    <h3>Refrigerante</h3>
+                    <p>Geladinho!</p>
+                </div>
+                <div class="food-item" onclick="selectFood(this)">
+                    <img src="vinho.webp" alt="Vinho">
+                    <h3>Vinho</h3>
+                    <p>Da vinícola Rohde</p>
+                </div>
+            </div>
+            <button onclick="nextStep('step2', 'step3')">Ir para Pagamento</button>
+        </div>
+
+        <!-- Etapa 3: Pagamento -->
+        <div class="step" id="step3">
+            <h2>Pagamento</h2>
+            <div style="text-align: center;">
+                <h3>Total a pagar:</h3>
+                <div class="price">💋 60 Beijinhos 💋</div>
+                <p>Forma de pagamento aceita: Apenas beijos apaixonados!</p>
+                <button onclick="nextStep('step3', 'step4')">Pagar com Beijos</button>
+            </div>
+        </div>
+
+        <!-- Etapa 4: Ticket -->
+        <div class="step" id="step4">
+            <h2>Seu Ingresso Especial</h2>
+            <div class="ticket">
+                <h3>🎟️ INGRESSO VIP 🎟️</h3>
+                <p><strong>Filme:</strong> Plano em Família</p>
+                <p><strong>Sessão:</strong> Especial dos Namorados</p>
+                <p><strong>Data:</strong> Hoje</p>
+                <p><strong>Horário:</strong> Agora mesmo!</p>
+                <p><strong>Poltrona:</strong> Juntinho de mim ❤️</p>
+                <p><strong>Comes e Bebes:</strong> Hambúrguer especial, chocolate, refri, vinho e muito amor</p>
+                <p style="color: #ff4d6d; font-weight: bold; margin-top: 20px;">
+                    Válido para uma noite incrível com muito amor, carinho e diversão! ❤️
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectMovie(card, movie) {
+            document.querySelectorAll('.movie-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+        }
+
+        function selectFood(item) {
+            item.classList.toggle('selected');
+        }
+
+        function nextStep(currentStep, nextStep) {
+            document.getElementById(currentStep).classList.remove('active');
+            document.getElementById(nextStep).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
