@@ -181,6 +181,14 @@ vocabulary.forEach(item => {
 		const userAnswer = input.value.toLowerCase().trim();
 		const correctAnswer = item.translation.toLowerCase();
 
+		if (userAnswer === '') {
+			result.textContent = '⚠️ Por favor, digite uma tradução.';
+			result.className =
+				'mt-3 py-2 px-3 rounded-lg text-center bg-yellow-50 text-yellow-800';
+			result.classList.remove('hidden');
+			return;
+		};
+
 		if (userAnswer === correctAnswer) {
 			result.textContent = '✅ Correto!';
 			result.className =
@@ -216,13 +224,13 @@ function pronounceWord(word) {
 	if ('speechSynthesis' in window) {
 		// Criar uma nova instância de SpeechSynthesisUtterance
 		const utterance = new SpeechSynthesisUtterance(word);
-		
+
 		// Configurar o idioma para inglês
 		utterance.lang = 'en-US';
-		
+
 		// Ajustar a velocidade da fala (opcional)
 		utterance.rate = 0.9; // Valores de 0.1 a 10, 1 é o padrão
-		
+
 		// Ler o texto
 		window.speechSynthesis.speak(utterance);
 	} else {
