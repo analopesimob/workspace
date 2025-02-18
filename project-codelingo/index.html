@@ -20,7 +20,9 @@
 			<header
 				class="mb-8 rounded-t-xl bg-gradient-to-r from-purple-800 to-fuchsia-700 p-8 text-center text-white shadow-lg"
 			>
-				<h1 class="group mb-4 text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+				<h1
+					class="group mb-4 text-4xl font-bold drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+				>
 					CodeLingo
 					<span
 						class="text-5xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
@@ -43,15 +45,21 @@
 			</header>
 
 			<main class="mx-auto max-w-7xl">
-				<div
-					id="cards"
-					class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-				></div>
+				<div class="grid grid-cols-12">
+					<div
+						id="ranking"
+						class="col-span-3 px-4"
+					></div>
+
+					<div
+						id="cards"
+						class="col-span-9 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+					></div>
+				</div>
 			</main>
 		</div>
 
 		<script src="app.js"></script>
 		<script src="mini-ranking.js"></script>
-
 	</body>
 </html>

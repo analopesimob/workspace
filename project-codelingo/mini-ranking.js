@@ -18,20 +18,19 @@ const topUsers = [
 
 // Função para adicionar o mini ranking ao cabeçalho
 function addMiniRanking() {
-	const header = document.querySelector('header');
-	if (!header) {
+	const parentContainer = document.querySelector('#ranking');
+	if (!parentContainer) {
 		console.error('Cabeçalho não encontrado!');
 		return;
 	}
 
 	// Criar container do mini ranking
 	const rankingContainer = document.createElement('div');
-	rankingContainer.className =
-		'absolute top-4 right-4 flex flex-col items-end';
+	rankingContainer.className = 'flex flex-col';
 
 	// Título do ranking
 	const rankingTitle = document.createElement('div');
-	rankingTitle.className = 'text-white text-sm mb-2 font-semibold';
+	rankingTitle.className = 'text-slate-950 text-sm mb-2 font-semibold';
 	rankingTitle.textContent = '🏆 Top Jogadores';
 	rankingContainer.appendChild(rankingTitle);
 
@@ -43,27 +42,27 @@ function addMiniRanking() {
 	topUsers.forEach((user, index) => {
 		const userItem = document.createElement('div');
 		userItem.className =
-			'flex items-center bg-white/10 backdrop-blur-sm rounded-lg p-2 pr-3 shadow-md';
+			'flex items-center bg-white backdrop-blur-sm rounded-lg p-2 pr-3 shadow-md relative ';
 
 		// Conteúdo do item de usuário
 		userItem.innerHTML = `
-		<div class="relative mr-3">
-		  <img src="${user.image}" alt="${user.name}" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/50">
-		  ${
-				index === 0
-					? `
-			<div class="absolute -top-2 -right-2">
-			  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" class="w-4 h-4">
-				<path d="M5 4a2 2 0 012-2h10a2 2 0 012 2v1H5V4zm9 7l1.8-1.8a.2.2 0 00-.297-.3L14 10.5V5h-4v5.5l-1.503-1.6a.2.2 0 00-.297.3L10 11 5 16h14l-5-5z"/>
-			  </svg>
+		${index === 0 ? `
+			<div class="absolute right-2 rounded-full bg-yellow-100 p-2 w-8 h-8 text-center text-xs">
+				<!-- ping -->
+				<span class="absolute -right-1 -top-1 flex h-3 w-3">
+					<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+					<span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+				</span>
+				🏆
 			</div>
-		  `
-					: ''
-			}
+		` : ''}
+
+		<div class="mr-3">
+		  <img src="${user.image}" alt="${user.name}" class="w-8 h-8 rounded-full object-cover ring-1 ring-white/50">
 		</div>
 		<div class="flex flex-col">
-		  <span class="text-white text-xs font-medium">${user.name}</span>
-		  <span class="text-pink-200 text-xs">${user.score} pts</span>
+		  <span class="text-slate-950 text-xs font-semibold">${user.name}</span>
+		  <span class="text-slate-700 text-xs">${user.score} pts</span>
 		</div>
 	  `;
 
@@ -72,9 +71,8 @@ function addMiniRanking() {
 
 	rankingContainer.appendChild(usersContainer);
 
-	// Inserir o ranking no cabeçalho (tornando o cabeçalho relative se necessário)
-	header.style.position = 'relative';
-	header.appendChild(rankingContainer);
+	// Inserir o ranking no container pai
+	parentContainer.appendChild(rankingContainer);
 }
 
 // Inicializar quando o DOM estiver pronto
