@@ -22,7 +22,6 @@ const vocabulary = [
 	{ word: 'image', translation: 'imagem', category: 'Frontend' },
 	{ word: 'form', translation: 'formulário', category: 'Frontend' },
 	{ word: 'label', translation: 'etiqueta', category: 'Frontend' },
-	{ word: 'ring', translation: 'anel', category: 'Frontend' },
 
 	// CSS
 	{ word: 'display', translation: 'exibição', category: 'CSS' },
@@ -35,6 +34,7 @@ const vocabulary = [
 	{ word: 'height', translation: 'altura', category: 'CSS' },
 	{ word: 'position', translation: 'posição', category: 'CSS' },
 	{ word: 'float', translation: 'flutuação', category: 'CSS' },
+	{ word: 'ring', translation: 'anel', category: 'CSS' },
 
 	// Eventos e Interações
 	{ word: 'click', translation: 'clique', category: 'Events' },
@@ -142,25 +142,40 @@ vocabulary.forEach(item => {
 	card.className =
 		'bg-white rounded-xl p-5 transform transition hover:-translate-y-1 duration-200 shadow-xl ring-1 ring-black/10';
 	card.innerHTML = `
-	<div class="text-xl text-gray-800 mb-3">${item.word}</div>
+
+	<div class="flex justify-between items-center mb-3">
+		<div class="text-xl text-gray-800">${item.word}</div>
+		<button class="pronunciation-btn w-8 h-8 flex items-center justify-center bg-purple-100 hover:bg-purple-200 rounded-full text-purple-700 transition-colors">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+				<path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+				<path d="M10.943 1.764A.5.5 0 0 1 11.5 2v12a.5.5 0 0 1-.943.236l-3-4a.5.5 0 0 1 0-.472l3-4a.5.5 0 0 1 .443-.236z"/>
+			</svg>
+		</button>
+	</div>
 	<div class="space-y-2">
 		<input type="text" 
 			class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-400 transition-colors duration-200" 
 			placeholder="Digite a tradução...">
-		<button class="w-full bg-gradient-to-r from-rose-400 to-rose-500 hover:bg-rose-500 text-white py-2 px-4 rounded-lg shadow-md transform transition-all duration-200 hover:shadow-lg active:translate-y-0.5">
+		<button class="verify-btn w-full bg-gradient-to-r from-pink-400 to-rose-400 hover:bg-rose-500 text-white py-2 px-4 rounded-lg shadow-md transform transition-all duration-200 hover:shadow-lg active:translate-y-0.5">
 		Verificar
 		</button>
 	</div>
 	<div class="mt-3 py-2 px-3 rounded-lg text-center hidden"></div>
-	<div class="inline-block mt-3 px-3 py-1 rounded-lg text-sm bg-rose-50 text-rose-600">
+	<div class="inline-block mt-3 px-3 py-1 rounded-lg text-sm bg-rose-50 text-gray-800">
 		${item.category}
 	</div>
 	`;
 
-	// referenciar as classes novamente
-	const button = card.querySelector('button');
+	// referenciar os elementos do card
+	const pronounceBtn = card.querySelector('.pronunciation-btn');
+	const button = card.querySelector('.verify-btn'); // botão verificar com seletor específico
 	const input = card.querySelector('input');
 	const result = card.querySelector('div:nth-child(3)');
+
+	// Adicionar evento de pronúncia
+	pronounceBtn.addEventListener('click', () => {
+		pronounceWord(item.word);
+	});
 
 	button.addEventListener('click', () => {
 		const userAnswer = input.value.toLowerCase().trim();
@@ -194,3 +209,23 @@ vocabulary.forEach(item => {
 
 	cardsContainer.appendChild(card);
 });
+
+// Função para pronunciar palavras usando a API Web Speech
+function pronounceWord(word) {
+	// Verificar se a API é suportada pelo navegador
+	if ('speechSynthesis' in window) {
+		// Criar uma nova instância de SpeechSynthesisUtterance
+		const utterance = new SpeechSynthesisUtterance(word);
+		
+		// Configurar o idioma para inglês
+		utterance.lang = 'en-US';
+		
+		// Ajustar a velocidade da fala (opcional)
+		utterance.rate = 0.9; // Valores de 0.1 a 10, 1 é o padrão
+		
+		// Ler o texto
+		window.speechSynthesis.speak(utterance);
+	} else {
+		alert('Desculpe, seu navegador não suporta a API de síntese de fala.');
+	}
+}
