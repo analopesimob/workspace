@@ -1,0 +1,16 @@
+{
+	"name": "project-aula-de-ingles",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^3.5.1",
+		"prettier-plugin-tailwindcss": "^0.6.11"
+	},
+	"dependencies": {
+		"tailwindcss": "3"
+	},
+	"scripts": {
+		"tailwind": "npx tailwindcss -i ./input.css -o ./output.css --watch"
+	}
+}
