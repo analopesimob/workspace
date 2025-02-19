@@ -6,7 +6,7 @@ const topUsers = [
 		id: 1,
 		name: 'Ana Rohde',
 		score: 98,
-		image: './eu-2.jpg'
+		image: './eu-3.jpeg'
 	},
 	{
 		id: 2,
