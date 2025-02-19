@@ -8,7 +8,7 @@ const vocabulary = [
 	{ word: 'loop', translation: 'laço', category: 'JavaScript' },
 	{ word: 'if', translation: 'se', category: 'JavaScript' },
 	{ word: 'else', translation: 'senão', category: 'JavaScript' },
-	{ word: 'return', translation: 'retornar', category: 'JavaScript' },
+	{ word: 'return', translation: 'retornar' , category: 'JavaScript' },
 	{ word: 'console', translation: 'console', category: 'JavaScript' },
 	{ word: 'boolean', translation: 'booleano', category: 'JavaScript' },
 
@@ -188,7 +188,7 @@ vocabulary.forEach(item => {
 				'mt-3 py-2 px-3 rounded-lg text-center bg-yellow-50 text-yellow-800';
 			result.classList.remove('hidden');
 			return;
-		};
+		}
 
 		if (userAnswer === correctAnswer) {
 			result.textContent = '✅ Correto!';
@@ -204,8 +204,18 @@ vocabulary.forEach(item => {
 				'w-full bg-gray-400 text-white py-2 px-4 rounded-lg cursor-not-allowed';
 		} else {
 			result.textContent = `❌ Incorreto. A resposta correta é: ${item.translation}`;
+
 			result.className =
 				'mt-3 py-2 px-3 rounded-lg text-center bg-red-50 text-red-800';
+				input.disabled = true;
+				button.disabled = true;
+				button.className =
+				'w-full bg-gray-400 text-white py-2 px-4 rounded-lg cursor-not-allowed';
+
+			// Diminuir vidas quando errar (se a função existir)
+			if (typeof window.decreaseLives === 'function') {
+				window.decreaseLives();
+			}
 		}
 		result.classList.remove('hidden');
 	});

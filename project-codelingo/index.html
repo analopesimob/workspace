@@ -9,14 +9,6 @@
 	</head>
 	<body class="p-4">
 		<div class="container mx-auto bg-slate-50">
-			<!-- Header Section -->
-			<!-- 
-				<div class="header">
-					<h1>CodeLingo </h1>
-					<p>Teste seu conhecimento! Escreva a tradução em português.</p>
-					<div class="score">Pontuação: <span id="score">0</span></div>
-				</div>
-			 -->
 			<header
 				class="mb-8 rounded-t-xl bg-gradient-to-r from-purple-800 to-fuchsia-700 p-8 text-center text-white shadow-lg"
 			>
@@ -29,18 +21,13 @@
 						>👾</span
 					>
 				</h1>
-				<!--<h1 class="group-hover: animate-bounce">👾</h1> -->
-				<p class="mb-4 text-lg">
+				<p class="mb-4 text-xl">
 					Teste seu conhecimento! Escreva a tradução em português.
 				</p>
 
-				<div class="text-xl font-semibold">
-					Pontuação:
-					<span
-						id="score"
-						class="text-pink-500"
-						>0</span
-					>
+				<!-- Elemento escondido para manter a funcionalidade -->
+				<div class="hidden">
+					<span id="score">0</span>
 				</div>
 			</header>
 
@@ -48,7 +35,7 @@
 				<div class="grid grid-cols-12">
 					<div
 						id="ranking"
-						class="col-span-3 px-4"
+						class="col-span-3 gap-6 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
 					></div>
 
 					<div
@@ -60,6 +47,8 @@
 		</div>
 
 		<script src="app.js"></script>
+		<script src="lives-system.js"></script>
+		<script src="score-card.js"></script>
 		<script src="mini-ranking.js"></script>
 	</body>
 </html>
