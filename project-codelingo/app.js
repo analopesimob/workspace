@@ -157,7 +157,7 @@ vocabulary.forEach(item => {
 		<input type="text" 
 			class="w-full px-3 py-2 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-rose-400 transition-colors duration-200" 
 			placeholder="Digite a tradução...">
-		<button class="verify-btn w-full bg-gradient-to-r from-pink-400 to-rose-400 hover:bg-rose-500 text-white py-2 px-4 rounded-lg shadow-md transform transition-all duration-200 hover:shadow-lg active:translate-y-0.5">
+		<button class="verify-btn w-full bg-[#FA4EAB] hover:bg-rose-500 text-white py-2 px-4 rounded-lg shadow-md transform transition-all duration-200 hover:shadow-lg active:translate-y-0.5">
 		Verificar
 		</button>
 	</div>
