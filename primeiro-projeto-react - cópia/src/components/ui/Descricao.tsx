@@ -83,7 +83,6 @@ const Descricao: React.FC = () => {
                                         ✓
                                     </div>
                                     <span>
-                                        {' '}
                                         Redução de Custos com Assessoria
                                     </span>
                                 </div>

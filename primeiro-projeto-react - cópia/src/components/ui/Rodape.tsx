@@ -1,9 +1,11 @@
 import React from 'react';
 import { Instagram, Mail, Facebook, Linkedin, Youtube } from 'lucide-react';
 
+
 const Rodape: React.FC = () => {
     return (
-        <footer className='rounded-b-3xl bg-slate-400 bg-gradient-to-r py-10 text-center lg:px-40'>
+		<div className='p-6'>
+        <div className='rounded-3xl bg-slate-400 bg-gradient-to-r py-10 text-center lg:px-40'>
             <div className='mx-auto max-w-7xl'>
                 <div className='grid grid-cols-1 gap-8 md:grid-cols-4'>
                     <div className=''>
@@ -61,7 +63,7 @@ const Rodape: React.FC = () => {
                             </li>
                             <li>
                                 <a href='#' className='hover:text-purple-900'>
-                                    MUDAR
+								Fale Conosco
                                 </a>
                             </li>
                         </ul>
@@ -116,7 +118,8 @@ const Rodape: React.FC = () => {
                 <div>© 2025 The Real Estate</div>
                 <div>Rohde Softwares © 2025</div>
             </div>
-        </footer>
+        </div>
+		</div>
     );
 };
 
