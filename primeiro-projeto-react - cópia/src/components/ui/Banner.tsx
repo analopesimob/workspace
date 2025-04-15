@@ -4,7 +4,7 @@ const Banner: React.FC = () => {
     return (
         <div className='flex flex-col lg:flex-row py-20 intems-center lg:px-40'>
             <div className='flex w-full items-center justify-center '>
-                <img src='/AI.png' alt='Imagem de exemplo' className='max-w-xl' />
+                <img src='Images/AI.png' alt='Imagem de exemplo' className='max-w-xl' />
             </div>
 
             <div className='flex flex-col items-start text-lg bg-slate-300 py-8 px-4 '>
@@ -27,4 +27,4 @@ const Banner: React.FC = () => {
     );
 };
 
-export default Banner;
+export default Banner; 

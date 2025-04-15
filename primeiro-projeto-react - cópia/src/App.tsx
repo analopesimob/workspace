@@ -5,7 +5,6 @@ import Descricao from './components/ui/Descricao';
 import Rodape from './components/ui/Rodape';
 import Banner from './components/ui/Banner';
 
-
 const App = () => {
     const [mostrarOpcoes, setMostrarOpcoes] = React.useState(false);
     const toggleOpcoes = () => {
@@ -19,7 +18,11 @@ const App = () => {
                     {/* header section */}
                     <div className='flex max-h-screen justify-between p-10 text-center lg:px-40'>
                         <div className='flex items-center'>
-                            <img src='logo3.png' alt='logo' className='w-10' />
+                            <img
+                                src='Images/logo3.png'
+                                alt='logo'
+                                className='w-10'
+                            />
                             <h1 className='flex h-10 items-center text-2xl font-semibold text-white'>
                                 The Real Estate
                             </h1>
@@ -99,22 +102,22 @@ const App = () => {
                                 em questão de minutos.
                             </p>
                             <button
-                                className='transform rounded-2xl bg-indigo-800 px-6 py-3 font-bold text-white shadow-lg transition-all duration-200 hover:scale-105'
+                                className='transform rounded-2xl bg-indigo-700 px-6 py-3 font-bold text-white shadow-lg transition-all duration-200 hover:scale-105'
                                 onClick={() => console.log('Iniciar teste')}
                             >
                                 Iniciar teste
                             </button>
                         </div>
                         <img
-                            src='contract.png'
+                            src='Images/contract.png'
                             alt='contract'
                             className='hidden w-80 md:block'
                         />
                     </div>
                 </div>
             </div>
-
-            <div className='bg-slate-300 px-8 py-32 lg:px-40'>
+			{/* Services section */}									
+            <div className='px-8 py-32 lg:px-40'>
                 <h2 className='mb-12 text-center text-3xl font-light text-gray-900'>
                     Nossos serviços
                 </h2>
